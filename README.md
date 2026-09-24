@@ -2,11 +2,11 @@
 
 ## 🌐 Site ChavierWebMídia
 
-Projeto de desenvolvimento do site profissional **ChavierWebMídia**, utilizando Python e Django.
+Projeto de desenvolvimento do site profissional **ChavierWebMídia**, criado para apresentar serviços, projetos e trabalhos desenvolvidos na área de desenvolvimento web.
 
 ## 🎯 Objetivo
 
-Criar um site profissional, responsivo e organizado para apresentar serviços, projetos e trabalhos desenvolvidos.
+Criar um site profissional, responsivo e organizado para divulgação dos trabalhos da **ChavierWebMídia**.
 
 ## 🛠️ Tecnologias
 
@@ -15,49 +15,79 @@ Criar um site profissional, responsivo e organizado para apresentar serviços, p
 * HTML5
 * CSS3
 * Bootstrap 5.3.3
+* Bootstrap Icons
 * Git
 * GitHub
 
-## 📐 Responsividade
+## 📁 Estrutura inicial
 
-O projeto utiliza o **Grid System do Bootstrap**:
+```text
+site_chavierwebmidia_2026/
+│
+├── chavierwebmidia/
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   └── includes/
+│   │       ├── header.html
+│   │       └── footer.html
+│   │
+│   └── static/
+│       └── css/
+│           └── style.css
+│
+├── manage.py
+├── requirements.txt
+└── README.md
+```
+
+## 🎨 Layout
+
+O projeto utiliza **Bootstrap** para construção do layout responsivo.
+
+Padrão utilizado no Grid:
 
 ```html
 col-12 col-md-6 col-lg-4
 ```
 
-### Padrão
+### Responsividade
 
-```text
-col-12
-↓
-Celular
+* `col-12`: dispositivos pequenos
+* `col-md-6`: dispositivos médios
+* `col-lg-4`: dispositivos grandes
 
-col-md-6
-↓
-Tablet
+## 🧩 Componentes
 
-col-lg-4
-↓
-Desktop
+### Base
+
+Foi criado um `base.html` para servir como estrutura principal das páginas.
+
+Utilização de:
+
+```django
+{% extends 'base.html' %}
 ```
 
-## 🧩 Estrutura
+### Header
+
+Header responsivo utilizando Bootstrap com menu de navegação.
+
+### Footer
+
+Footer responsivo utilizando o **Grid System do Bootstrap**.
+
+Estrutura:
 
 ```text
-templates/
-├── base.html
-├── home.html
-└── includes/
-    ├── header.html
-    └── footer.html
-
-static/
-└── css/
-    └── style.css
+container
+└── row
+    ├── col-12 col-md-6 col-lg-4
+    ├── col-12 col-md-6 col-lg-4
+    └── col-12 col-md-6 col-lg-4
 ```
 
-## 🏠 Home
+### Home
 
 A página inicial possui:
 
@@ -66,41 +96,43 @@ A página inicial possui:
 * Projetos
 * Contato
 
-## 🎨 Layout
+## 🎨 Cores
 
-Header e Footer utilizam gradiente personalizado:
+As principais cores do projeto foram organizadas utilizando variáveis CSS no `:root`.
 
 ```css
-background: linear-gradient(
-    256deg,
-    rgba(0, 14, 36, 1) 0%,
-    rgba(9, 9, 121, 0.6) 35%,
-    rgba(0, 212, 255, 1) 100%
-);
+:root {
+    --cor-principal: #000e24;
+    --cor-secundaria: #090979;
+    --cor-destaque: #00d4ff;
+    --cor-fundo: #333333;
+    --cor-branca: #ffffff;
+    --cor-texto: #333333;
+}
 ```
 
-As cores principais são organizadas através do `:root`.
+Também foi utilizado um gradiente no Header e Footer.
 
-## 📱 Bootstrap
+## 📱 Responsividade
 
-O projeto utiliza componentes e classes do Bootstrap para:
+O projeto utiliza as classes responsivas do Bootstrap para adaptar o conteúdo a:
 
-* Grid responsivo
-* Navbar
-* Botões
-* Cards
-* Espaçamentos
-* Alinhamento
-* Responsividade
+* 📱 Celulares
+* 📱 Tablets
+* 💻 Desktops
 
-## 🚧 Status
+## 🚧 Status do projeto
 
 **Em desenvolvimento.**
 
-Novas páginas e funcionalidades serão adicionadas durante o desenvolvimento.
+Novas páginas, conteúdos, funcionalidades e melhorias de layout serão adicionados durante o desenvolvimento do projeto.
 
 ## 👨‍💻 Desenvolvedor
 
 **ChavierWebMídia**
 
-> Sites Profissionais • Landing Pages • Sistemas Web
+Desenvolvimento de:
+
+* Sites Profissionais
+* Landing Pages
+* Sistemas Web

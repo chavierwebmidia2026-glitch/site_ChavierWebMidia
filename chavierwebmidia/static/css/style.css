@@ -1,0 +1,72 @@
+ /*=======================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS := PÁGINA STYLE PRINCIPAL DO SITE >
+     =====================================*/
+
+
+:root {
+
+    --cor-principal: #000e24;
+    --cor-secundaria: #090979;
+    --cor-destaque: #00d4ff;
+
+    --cor-fundo:#121313;
+
+    --cor-branca: #ffffff;
+    --cor-texto:#B0D3E4;
+    --cor-titulo:#1e1a84 ;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+   color: var(--cor-titulo);
+}
+
+
+.btn{
+  
+
+     background: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
+
+
+}
+
+
+header{
+
+
+     background: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
+}
+
+
+footer{
+
+     background: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
+}
