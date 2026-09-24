@@ -10,16 +10,18 @@
     --cor-secundaria: #090979;
     --cor-destaque: #00d4ff;
 
-    --cor-branca: #ffffff;
-    --cor-texto: #333333;
+    --cor-fundo:#121313;
 
+    --cor-branca: #ffffff;
+    --cor-texto:#B0D3E4;
+    --cor-titulo:#1e1a84 ;
 }
 
 body {
     margin: 0;
     padding: 0;
     color: var(--cor-texto);
-    background-color: var(--cor-clara);
+    background-color: var(--cor-fundo);
 }
 
 a {
@@ -29,8 +31,23 @@ a {
 h1,
 h2,
 h3 {
-    color: var(--cor-principal);
+   color: var(--cor-titulo);
 }
+
+
+.btn{
+  
+
+     background: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
+
+
+}
+
 
 header{
 
