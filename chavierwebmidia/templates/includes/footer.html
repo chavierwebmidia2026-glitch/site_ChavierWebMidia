@@ -2,52 +2,216 @@
      < CHWM := CHAVIERWEBMÍDIA >
      < HTML := PÁGINA FOOTER.HTML >
      ============================ -->
+{% load static %}
 
-<footer class="text-white py-4 mt-5">
+<footer class="border-top mt-5">
 
-    <div class="container">
+    <div class="container py-5">
 
-        <div class="row">
+        <div class="row g-4">
 
-            <div class="col-12 col-md-6 col-lg-4">
+            <!-- Marca -->
+            <div class="col-12 col-lg-4">
 
-                <h5>ChavierWebMídia</h5>
-
-                <p class="mb-0">
-                    Sites Profissionais • Landing Pages • Sistemas Web
-                </p>
-
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <h5>Links</h5>
-
-                <a href="/" class="text-white">
-                    Home
+                <a href="/" class="d-inline-block mb-3">
+                    <img src="{% static 'imagem/logo-chavier-web-midia-solucoes-digitais.png' %}"
+                        alt="Chavier Web Mídia Soluções Digitais" class="img-fluid" style="max-width: 210px;">
                 </a>
 
+                <h5 class="fw-bold text-white">
+                    Chavier Web Mídia
+                </h5>
+
+                <p class="text-white mb-4">
+                    Soluções digitais profissionais para empresas,
+                    empreendedores e negócios modernos.
+                </p>
+
+                <!-- Redes sociais -->
+                <div class="d-flex gap-2">
+
+                    <a href="#" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 42px; height: 42px;" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 42px; height: 42px;" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 42px; height: 42px;" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 42px; height: 42px;" aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4">
+            <!-- Serviços -->
+            <div class="col-6 col-md-4 col-lg-2">
 
-                <h5>Contato</h5>
+                <h6 class="fw-bold text-uppercase mb-3">
+                    Serviços
+                </h6>
 
-                <p class="mb-0">
-                    ChavierWebMídia
-                </p>
+                <ul class="list-unstyled mb-0">
+
+                    <li class="mb-2">
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-chevron-right small me-1"></i>
+                            Sites profissionais
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-chevron-right small me-1"></i>
+                            Landing pages
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-chevron-right small me-1"></i>
+                            Sistemas web
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-chevron-right small me-1"></i>
+                            Design digital
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Links -->
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <h6 class="fw-bold text-uppercase mb-3">
+                    Navegação
+                </h6>
+
+                <ul class="list-unstyled mb-0">
+
+                    <li class="mb-2">
+                        <a href="/" class="text-white text-decoration-none">
+                            <i class="bi bi-house-door me-1"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#sobre" class="text-white text-decoration-none">
+                            <i class="bi bi-person me-1"></i>
+                            Sobre nós
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#projetos" class="text-white text-decoration-none">
+                            <i class="bi bi-grid me-1"></i>
+                            Projetos
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#contato" class="text-white text-decoration-none">
+                            <i class="bi bi-envelope me-1"></i>
+                            Contato
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contato -->
+            <div class="col-12 col-md-4 col-lg-4">
+
+                <h6 class="fw-bold text-uppercase mb-3">
+                    Fale conosco
+                </h6>
+
+                <div class="d-flex align-items-start mb-3">
+                    <i class="bi bi-whatsapp fs-5 text-white me-3"></i>
+
+                    <div>
+                        <small class="text-white d-block">
+                            WhatsApp
+                        </small>
+
+                        <a href="https://wa.me/5500000000000" class="text-white text-decoration-none fw-semibold">
+                            (00 ) 00000-0000
+                        </a>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-3">
+                    <i class="bi bi-envelope fs-5 text-white me-3"></i>
+
+                    <div>
+                        <small class="text-white d-block">
+                            E-mail
+                        </small>
+
+                        <a href="mailto:contato@seudominio.com"
+                            class="text-white text-decoration-none fw-semibold text-break">
+                            contato@seudominio.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start">
+                    <i class="bi bi-clock fs-5 text-white me-3"></i>
+
+                    <div>
+                        <small class="text-white d-block">
+                            Atendimento
+                        </small>
+
+                        <span class="text-white fw-semibold">
+                            Segunda a sexta, das 8h às 18h
+                        </span>
+                    </div>
+                </div>
 
             </div>
 
         </div>
 
-        <hr>
+        <hr class="my-4">
 
-        <div class="text-center">
+        <!-- Rodapé inferior -->
+        <div class="row align-items-center g-3">
 
-            <p class="mb-0">
-                © 2026 ChavierWebMídia
-            </p>
+            <div class="col-12 col-md-6 text-center text-md-start">
+                <p class="text-white mb-0">
+                    © 2026 Chavier Web Mídia. Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div class="col-12 col-md-6 text-center text-md-end">
+
+                <a href="#" class="text-white text-decoration-none me-3">
+                    Política de privacidade
+                </a>
+
+                <a href="#" class="text-white text-decoration-none">
+                    Termos de uso
+                </a>
+
+            </div>
 
         </div>
 
