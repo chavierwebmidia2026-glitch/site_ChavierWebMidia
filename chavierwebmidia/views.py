@@ -10,3 +10,7 @@ def home(request):
 
 def sobre(request):
     return render (request, 'sobre.html')
+
+
+def contatos(request):
+    return render (request, 'contatos.html')

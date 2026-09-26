@@ -1,0 +1,55 @@
+ /*=======================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS := PÁGINA STYLE CONTATOS DO SITE >
+     =====================================*/
+
+
+
+.contato {
+  background:  #090606;
+    min-height: 100%;
+}
+
+     
+/* CONTATO - Hover & Dinamismo */
+
+.contato .card {
+    border-radius: 1rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contato .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.contato .form-control,
+.contato .form-select {
+    border-radius: 0.75rem;
+    border: 1.5px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.contato .form-control:focus,
+.contato .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.contato .btn-primary {
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.contato .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.35);
+}
+
+.contato .btn-outline-primary {
+    transition: all 0.3s ease;
+}
+
+.contato .btn-outline-primary:hover {
+    transform: translateY(-3px) scale(1.1);
+}
