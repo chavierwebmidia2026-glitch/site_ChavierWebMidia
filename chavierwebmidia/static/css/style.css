@@ -11,7 +11,7 @@
     --cor-principal: #000e24;
     --cor-secundaria: #090979;
     --cor-destaque: #00d4ff;
-    --cor-fundo: #121313;
+    --cor-fundo: #090606;
     --cor-branca: #ffffff;
     --cor-texto: #B0D3E4;
     --cor-titulo: #1e1a84;
@@ -39,6 +39,10 @@ body {
     background-color: var(--cor-fundo);
 
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+main {
+    background: #ffffff;
 }
 
 

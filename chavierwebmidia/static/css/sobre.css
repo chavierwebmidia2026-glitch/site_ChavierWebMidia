@@ -1,0 +1,148 @@
+/*=======================================
+    < CHWM := CHAVIERWEBMÍDIA >
+    < CSS := STYLE PÁGINA SOBRE >
+    =======================================*/
+
+
+
+.sobre {
+  background: #090606;
+    min-height: 100%;
+}
+
+
+.sobre h1 {
+
+    color: var(--cor-destaque);
+
+}
+
+.sobre p {
+
+    color: var(--cor-texto);
+
+}
+
+
+
+
+/* Animação suave em tudo */
+.sobre * {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cards de serviços */
+.sobre .card {
+    border-radius: 1rem;
+    overflow: hidden;
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.sobre .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card de destaque (Solução Completa) */
+.sobre .card.bg-primary:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(13, 110, 253, 0.35);
+}
+
+/* Ícones dentro dos cards */
+.sobre .card .bg-primary.bg-opacity-10 {
+    transition: all 0.35s ease;
+}
+
+.sobre .card:hover .bg-primary.bg-opacity-10 {
+    background-color: rgba(13, 110, 253, 0.2) !important;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Título dos cards */
+.sobre .card h5 {
+    transition: color 0.3s ease;
+}
+
+.sobre .card:not(.bg-primary):hover h5 {
+    color: #0d6efd;
+}
+
+/* Botão do card de destaque */
+.sobre .card .btn-light {
+    transition: all 0.3s ease;
+}
+
+.sobre .card .btn-light:hover {
+    background-color: #111010;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem da empresa */
+.sobre img {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sobre img:hover {
+    transform: scale(1.04);
+    filter: drop-shadow(0 25px 35px rgba(16, 2, 2, 0.15));
+}
+
+/* Efeito de brilho atrás da imagem */
+.sobre .position-absolute.bg-primary.opacity-10 {
+    transition: all 0.6s ease;
+}
+
+.sobre .col-lg-6:hover .position-absolute.bg-primary.opacity-10 {
+    opacity: 0.18 !important;
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Badges e textos de destaque */
+.sobre .badge {
+    transition: all 0.3s ease;
+}
+
+.sobre .badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+}
+
+/* Checklist (Projetos personalizados, etc) */
+.sobre .d-flex.align-items-center {
+    transition: all 0.3s ease;
+}
+
+.sobre .d-flex.align-items-center:hover {
+    transform: translateX(6px);
+}
+
+.sobre .d-flex.align-items-center:hover .bg-success {
+    background-color: rgba(25, 135, 84, 0.25) !important;
+    transform: scale(1.15);
+}
+
+/* Suaviza a entrada dos cards (opcional) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sobre .card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.sobre .card:nth-child(1) { animation-delay: 0.1s; }
+.sobre .card:nth-child(2) { animation-delay: 0.2s; }
+.sobre .card:nth-child(3) { animation-delay: 0.3s; }
+.sobre .card:nth-child(4) { animation-delay: 0.4s; }
+.sobre .card:nth-child(5) { animation-delay: 0.5s; }
+.sobre .card:nth-child(6) { animation-delay: 0.6s; }
