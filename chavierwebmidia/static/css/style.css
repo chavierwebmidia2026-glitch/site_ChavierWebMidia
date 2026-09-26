@@ -1,168 +1,274 @@
- /*=======================================
-     < CHWM := CHAVIERWEBMÍDIA >
-     < CSS := PÁGINA STYLE PRINCIPAL DO SITE >
-     =====================================*/
+/*=======================================
+    < CHWM := CHAVIERWEBMÍDIA >
+    < CSS := STYLE PRINCIPAL DO SITE >
+    =======================================*/
 
 
- :root {
+/* ---------- Variáveis ---------- */
 
-     --cor-principal: #000e24;
-     --cor-secundaria: #090979;
-     --cor-destaque: #00d4ff;
+:root {
 
-     --cor-fundo: #121313;
+    --cor-principal: #000e24;
+    --cor-secundaria: #090979;
+    --cor-destaque: #00d4ff;
+    --cor-fundo: #121313;
+    --cor-branca: #ffffff;
+    --cor-texto: #B0D3E4;
+    --cor-titulo: #1e1a84;
 
-     --cor-branca: #ffffff;
-     --cor-texto: #B0D3E4;
-     --cor-titulo: #1e1a84;
- }
+    --gradiente-chwm: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
 
- body {
-     margin: 0;
-     padding: 0;
-     color: var(--cor-texto);
-     background-color: var(--cor-fundo);
-     overflow-x: hidden;
- }
+    --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.35);
+    --sombra-forte: 0 8px 24px rgba(0, 0, 0, 0.5);
 
- a {
-    color: #00d4ff;
-     text-decoration: none;
- }
-
- h1,
- h2,
- h3 {
-     color: var(--cor-titulo);
- }
+    --raio-padrao: 10px;
+    --transicao-padrao: all 0.3s ease;
+}
 
 
- .btn {
+/* ---------- Base ---------- */
+
+body {
+
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
 
 
-     background: linear-gradient(256deg,
-             var(--cor-principal) 0%,
-             var(--cor-secundaria) 35%,
-             var(--cor-destaque) 100%);
+a {
+
+    color: var(--cor-destaque);
+
+    text-decoration: none;
+
+    transition: var(--transicao-padrao);
+}
 
 
- }
+a:hover {
+
+    color: var(--cor-branca);
+}
 
 
- header {
+h1,
+h2,
+h3 {
 
-    height: 150px;
+    color: var(--cor-titulo);
 
-
-     background: linear-gradient(256deg,
-             var(--cor-principal) 0%,
-             var(--cor-secundaria) 35%,
-             var(--cor-destaque) 100%);
- }
+    font-weight: 700;
+}
 
 
- 
- .nav-item{
-    color: #00d4ff;
- }
+/* ---------- Botões ---------- */
+
+.btn {
+
+    background: var(--gradiente-chwm);
+
+    color: var(--cor-branca);
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    box-shadow: var(--sombra-suave);
+
+    transition: var(--transicao-padrao);
+}
 
 
- .navbar-brand img {
-    height: 200px;
-    width: auto;
+.btn:hover {
+
+    color: var(--cor-branca);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra-forte);
+
+    filter: brightness(1.1);
+}
+
+
+/* ---------- Header ---------- */
+
+header {
+
+    background: var(--gradiente-chwm);
+
+    box-shadow: var(--sombra-suave);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1030;
+}
+
+
+/* Logo */
+
+.navbar-brand img {
+
+    max-height: 100px;
+
     object-fit: contain;
-    margin-top: -40px;
-    margin-bottom: -15px;
-    transition: transform 0.4s ease, filter 0.4s ease;
+
+    transition: transform 0.3s ease;
 }
 
 
 .navbar-brand img:hover {
-     transform: scale(1.08);
-     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
+
+    transform: scale(1.08);
 }
 
 
+/* ---------- Menu ---------- */
 
+.navbar-nav .nav-link {
 
+    color: var(--cor-branca);
 
-
- /*  MEGA DROPDOWN  */
- .dropdown-menu {
-     width: 100vw;
-     left: 50%;
-     transform: translateX(-70%);
-     border: none;
-     border-radius: 0;
-     background: linear-gradient(256deg,
-             var(--cor-principal) 0%,
-             var(--cor-secundaria) 35%,
-             var(--cor-destaque) 100%);
-    margin-top: 43px !important; 
+    transition: var(--transicao-padrao);
 }
 
 
- /* Conteúdo */
- .dropdown-menu .container {
-     width: 100%;
- }
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
 
- /* Títulos */
- .dropdown-menu h5 {
-     margin-bottom: 10px;
- }
-
- /* Texto */
- .dropdown-menu p {
-     margin-bottom: 15px;
- }
-
- /* Botões */
- .dropdown-menu .btn {
-     margin-top: 5px;
- }
+    color: var(--cor-destaque) !important;
+}
 
 
- /*  TABLET */
- @media (max-width: 991.98px) {
-     .dropdown-menu {
-         position: static;
-         width: 100%;
-         transform: none;
-     }
- }
+/* ---------- Dropdown Serviços ---------- */
+
+.dropdown-menu {
+
+    background: linear-gradient(
+        256deg,
+        var(--cor-principal) 0%,
+        var(--cor-secundaria) 35%,
+        var(--cor-destaque) 100%
+    );
+
+    border: 1px solid var(--cor-branca);
+
+    border-radius: 0;
+
+    box-shadow: var(--sombra-forte);
+
+    width: 100%;
+
+    max-width: 100%;
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+
+    right: 0;
+
+    margin-top: 0;
+
+    transform: none;
+}
 
 
+/* Título */
 
- /*  CELULAR */
- @media (max-width: 575.98px) {
-     .dropdown-menu {
-         width: 100%;
-     }
+.dropdown-menu h5 {
 
-     .dropdown-menu .container {
-         padding-left: 20px;
-         padding-right: 20px;
-     }
-
-     .dropdown-menu h5 {
-         font-size: 18px;
-     }
-
-     .dropdown-menu p {
-         font-size: 14px;
-     }
-
-     .dropdown-menu .btn {
-         width: 100%;
-     }
- }
+    color: var(--cor-branca);
+}
 
 
- footer {
+/* Texto */
 
-     background: linear-gradient(256deg,
-             var(--cor-principal) 0%,
-             var(--cor-secundaria) 35%,
-             var(--cor-destaque) 100%);
- }
+.dropdown-menu p {
+
+    color: var(--cor-texto);
+}
+
+
+/* ---------- Dropdown Desktop ---------- */
+
+@media (min-width: 992px) {
+
+    .nav-item.dropdown {
+
+        position: static;
+    }
+
+
+    .nav-item.dropdown .dropdown-menu {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        right: 0;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-top: 0;
+
+        transform: none;
+    }
+
+
+    /* Abrir ao passar o mouse */
+
+    .nav-item.dropdown:hover .dropdown-menu {
+
+        display: block;
+    }
+
+}
+
+
+/* ---------- Dropdown Mobile ---------- */
+
+@media (max-width: 991.98px) {
+
+    .dropdown-menu {
+
+        position: static;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-top: 0;
+
+        transform: none;
+    }
+
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+
+    background: var(--gradiente-chwm);
+
+    color: var(--cor-texto);
+
+    text-align: center;
+}
