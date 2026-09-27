@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from .models import Certificado
 
-# Create your views here.
 
 
 def home(request):
@@ -14,3 +14,16 @@ def sobre(request):
 
 def contatos(request):
     return render (request, 'contatos.html')
+
+
+def qualificacoes(request):
+
+    certificados = Certificado.objects.all()
+
+    return render(
+        request,
+        'qualificacoes.html',
+        {
+            'certificados': certificados
+        }
+    )

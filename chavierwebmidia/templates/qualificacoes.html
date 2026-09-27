@@ -1,0 +1,774 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := PÁGINA QUALIFICAÇÕES.HTML >
+     ============================ -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Qualificações | ChavierWebMídia
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- HERO -->
+
+<section class="py-5">
+
+    <div class="container py-4">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-12 col-lg-9">
+
+                <span class="badge rounded-pill px-3 py-2 mb-3">
+                    <i class="bi bi-award me-1"></i>
+                    Formação e Qualificações
+                </span>
+
+                <h1 class="display-5 fw-bold mb-3">
+                    Minhas Qualificações
+                </h1>
+
+                <p class="lead mb-0">
+                    Conheça minha formação, certificados e conhecimentos
+                    adquiridos ao longo da minha trajetória profissional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CERTIFICADOS-->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <!-- Título da seção -->
+
+        <div class="row mb-5">
+
+            <div class="col-12 text-center">
+
+                <span class="text-uppercase fw-semibold">
+                    Formação profissional
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    Certificados e Cursos
+                </h2>
+
+                <p class="mb-0">
+                    Cursos e formações que fazem parte da minha preparação
+                    profissional.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRID DOS CERTIFICADOS -->
+
+        <div class="row g-4">
+
+            {% for certificado in certificados %}
+
+            <div class="col-12 col-md-6 col-xl-4">
+
+                <article class="card h-100 shadow-sm border-0">
+
+                    <!-- Imagem -->
+
+                    {% if certificado.imagem %}
+
+                    <div class="position-relative">
+
+                        <img src="{{ certificado.imagem.url }}" class="card-img-top img-fluid"
+                            alt="{{ certificado.nome }}" onclick="ampliarImagem(this.src)">
+
+                        <span class="position-absolute top-0 end-0 m-3 badge">
+                            Certificado
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <!-- Conteúdo -->
+
+                    <div class="card-body p-4 d-flex flex-column">
+
+                        <div class="mb-3">
+
+                            <span class="small text-uppercase fw-semibold">
+                                Curso
+                            </span>
+
+                            <h3 class="h5 fw-bold mt-1">
+                                {{ certificado.nome }}
+                            </h3>
+
+                        </div>
+
+
+                        <!-- Instituição -->
+
+                        <div class="d-flex align-items-start mb-3">
+
+                            <i class="bi bi-building fs-5 me-3"></i>
+
+                            <div>
+
+                                <small class="d-block">
+                                    Instituição
+                                </small>
+
+                                <span class="fw-semibold">
+                                    {{ certificado.instituicao }}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Datas -->
+
+                        <div class="row g-3 mb-3">
+
+                            <div class="col-6">
+
+                                <div class="d-flex align-items-start">
+
+                                    <i class="bi bi-calendar-check fs-5 me-2"></i>
+
+                                    <div>
+
+                                        <small class="d-block">
+                                            Início
+                                        </small>
+
+                                        <span class="fw-semibold">
+                                            {{ certificado.data_inicio|date:"d/m/Y" }}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6">
+
+                                <div class="d-flex align-items-start">
+
+                                    <i class="bi bi-calendar-event fs-5 me-2"></i>
+
+                                    <div>
+
+                                        <small class="d-block">
+                                            Término
+                                        </small>
+
+                                        <span class="fw-semibold">
+                                            {{ certificado.data_termino|date:"d/m/Y" }}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Carga horária -->
+
+                        <div class="d-flex align-items-start mb-3">
+
+                            <i class="bi bi-clock fs-5 me-3"></i>
+
+                            <div>
+
+                                <small class="d-block">
+                                    Carga horária
+                                </small>
+
+                                <span class="fw-semibold">
+                                    {{ certificado.carga_horaria }} horas
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Descrição -->
+
+                        <div class="mb-4">
+
+                            <h4 class="h6 fw-bold">
+                                Sobre o curso
+                            </h4>
+
+                            <p class="small mb-0">
+                                {{ certificado.descricao }}
+                            </p>
+
+                        </div>
+
+
+                        <!-- Botão -->
+
+                        {% if certificado.certificado %}
+
+                        <a href="{{ certificado.certificado.url }}" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-primary w-100 mt-auto">
+                            <i class="bi bi-file-earmark-check me-2"></i>
+                            Visualizar certificado
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <p class="text-muted">
+                    Nenhum certificado cadastrado.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONHECIMENTOS -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <!-- Título Premium -->
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-12 col-lg-8">
+
+                <!-- Ícone -->
+                <div class="d-inline-flex align-items-center justify-content-center title-icon mb-3">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <!-- Label -->
+                <span class="text-uppercase d-block section-label">
+                    Tecnologias e ferramentas
+                </span>
+
+                <!-- Título -->
+                <h2 class="section-title">
+                    Conhecimentos
+                </h2>
+
+                <!-- Descrição -->
+                <p class="section-description">
+                    Tecnologias e ferramentas que fazem parte da minha formação e experiência em desenvolvimento.
+                </p>
+
+            </div>
+        </div>
+
+
+        <!-- Carrossel -->
+
+        <div id="carrosselTecnologias" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+
+            <div class="carousel-inner">
+
+
+                <!-- HTML5 -->
+
+                <div class="carousel-item active">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/919827-removebg-preview.png' %}" alt="HTML5"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    HTML5
+                                </h3>
+
+                                <p class="mb-0">
+                                    Linguagem de marcação utilizada para
+                                    estruturar páginas e conteúdos da web.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CSS3 -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/63633b31eb4ff14005e18661a029a8ab-removebg-preview.png' %}"
+                                    alt="CSS3" class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    CSS3
+                                </h3>
+
+                                <p class="mb-0">
+                                    Tecnologia utilizada para estilizar,
+                                    organizar e criar layouts responsivos
+                                    para páginas web.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Bootstrap -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 160732.png' %}" alt="Bootstrap"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Bootstrap
+                                </h3>
+
+                                <p class="mb-0">
+                                    Framework utilizado para criar interfaces
+                                    modernas, responsivas e adaptadas a
+                                    diferentes dispositivos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JavaScript -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 160329.png' %}" alt="JavaScript"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    JavaScript
+                                </h3>
+
+                                <p class="mb-0">
+                                    Linguagem utilizada para adicionar
+                                    interatividade e comportamentos
+                                    dinâmicos às páginas web.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Python -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 160133.png' %}" alt="Python"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Python
+                                </h3>
+
+                                <p class="mb-0">
+                                    Linguagem de programação utilizada no
+                                    desenvolvimento de aplicações, sistemas
+                                    web e automações.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Django -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/django-badge.png' %}" alt="Django" class="img-fluid mb-4"
+                                    style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Django
+                                </h3>
+
+                                <p class="mb-0">
+                                    Framework Python utilizado para criar
+                                    aplicações web completas, organizadas
+                                    e escaláveis.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Java -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 164334.png' %}" alt="Java"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Java
+                                </h3>
+
+                                <p class="mb-0">
+                                    Linguagem de programação utilizada no
+                                    desenvolvimento de aplicações e sistemas.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Spring Boot -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/blog_spring_boot-removebg-preview.png' %}" alt="Spring Boot"
+                                    class="img-fluid mb-4" style="height: 173px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Spring Boot
+                                </h3>
+
+                                <p class="mb-0">
+                                    Framework Java utilizado para desenvolver
+                                    aplicações e APIs no backend.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <!-- Git -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 160953.png' %}" alt="Git"
+                                    class="img-fluid mb-4" style="height: 150px; object-fit: contain;">
+
+                                <h3 class="h4 fw-bold">
+                                    Git
+                                </h3>
+
+                                <p class="mb-0">
+                                    Sistema de controle de versões utilizado
+                                    para acompanhar e organizar alterações
+                                    nos projetos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GitHub -->
+
+                <div class="carousel-item">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12 col-md-8 col-lg-6">
+
+                            <div class="border rounded-4 shadow-sm p-4 p-lg-5 text-center h-100">
+
+                                <img src="{% static 'imagem/Captura de tela 2026-08-08 161108.png' %}" alt="GitHub"
+                                    class="img-fluid mb-4" style="height: 210px; object-fit: contain;">
+
+
+
+                                <p class="mb-0">
+                                    Plataforma utilizada
+                                    para hospedar,
+                                    versionar e
+                                    compartilhar projetos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Botão anterior -->
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrosselTecnologias"
+                data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+                <span class="visually-hidden">
+                    Anterior
+                </span>
+
+            </button>
+
+
+            <!-- Botão próximo -->
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carrosselTecnologias"
+                data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+                <span class="visually-hidden">
+                    Próximo
+                </span>
+
+            </button>
+
+
+            <!-- Indicadores -->
+
+            <div class="carousel-indicators position-static mt-4">
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="0"
+                    class="active"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="1"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="2"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="3"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="4"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="5"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="6"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="7"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="8"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="9"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="10"></button>
+
+                <button type="button" data-bs-target="#carrosselTecnologias" data-bs-slide-to="11"></button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHAMADA FINAL - PREMIUM ROBUSTA -->
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="cta-premium p-4 p-md-5 rounded-4 text-center">
+
+            <!-- Ícone -->
+            <div class="cta-icon mx-auto mb-4">
+                <i class="bi bi-laptop"></i>
+            </div>
+
+            <!-- Título -->
+            <h2 class="fw-bold mb-3 text-white">
+                Vamos transformar sua ideia em um projeto digital?
+            </h2>
+
+            <!-- Texto -->
+            <p class="text-muted-white mb-4 mx-auto" style="max-width: 520px; line-height: 1.6;">
+                Entre em contato e conheça as soluções da
+                <strong class="text-primary">ChavierWebMídia</strong>.
+            </p>
+
+            <!-- Botões -->
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-whatsapp px-4 py-3">
+                    <i class="bi bi-whatsapp me-2"></i>
+                    Falar pelo WhatsApp
+                </a>
+
+                <!-- Formulário -->
+                <a href="{% url 'contatos' %}" class="btn btn-primary-premium px-4 py-3">
+                    <i class="bi bi-envelope me-2"></i>
+                    Enviar mensagem
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MODAL DA IMAGEM -->
+
+<div class="modal fade" id="modalImagem" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-body text-center">
+
+                <img id="imagemAmpliada" src="" class="img-fluid" alt="Certificado ampliado">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- JavaScript da página -->
+
+<script src="{% static 'js/qualificacoes.js' %}"></script>
+
+
+{% endblock %}

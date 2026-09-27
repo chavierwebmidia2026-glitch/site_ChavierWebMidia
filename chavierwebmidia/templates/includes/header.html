@@ -42,6 +42,7 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="/">
+                            <i class="bi bi-house me-1"></i>
                             Home
                         </a>
 
@@ -58,6 +59,7 @@
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
+                            <i class="bi bi-briefcase me-1"></i>
                             Serviços
                         </a>
 
@@ -144,7 +146,19 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="#">
+                            <i class="bi bi-folder me-1"></i>
                             Portfólio
+                        </a>
+
+                    </li>
+
+
+                    <!-- Qualificação -->
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{% url 'qualificacoes' %}">
+                            <i class="bi bi-award me-1"></i>
+                            Qualificações
                         </a>
 
                     </li>
@@ -154,6 +168,7 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="{% url 'sobre' %}">
+                            <i class="bi bi-person me-1"></i>
                             Sobre
                         </a>
 
@@ -164,6 +179,7 @@
                     <li class="nav-item">
 
                         <a class="btn btn-sm ms-lg-2" href="{% url 'contatos' %}">
+                            <i class="bi bi-envelope me-1"></i>
                             Contato
                         </a>
 

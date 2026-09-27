@@ -1,0 +1,171 @@
+/*=======================================
+    < CHWM := CHAVIERWEBMÍDIA >
+    < CSS := STYLE PÁGINA QUALIFICAÇÕES >
+    =======================================*/
+
+
+.card-img-top {
+    height: 220px;
+    object-fit: contain;
+}
+
+
+/* ===== Título Premium ===== */
+.title-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(256deg,
+            var(--cor-principal) 0%,
+            var(--cor-secundaria) 35%,
+            var(--cor-destaque) 100%);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(239, 238, 242, 0.08);
+}
+
+.title-icon:hover {
+    background: #d5d4da;
+    color: #ffffff;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(227, 226, 232, 0.35);
+}
+
+.section-label {
+    letter-spacing: 1.5px;
+    color: #6c5ce7;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: #e8e8ef;
+    margin-top: 0.75rem;
+}
+
+.section-description {
+    font-size: 1.05rem;
+    color: #e7e8e9;
+    max-width: 540px;
+    margin: 0.75rem auto 0;
+    line-height: 1.6;
+}
+
+/* Responsivo extra */
+@media (max-width: 576px) {
+    .title-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.3rem;
+    }
+
+    .section-label {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* ===== Chamada Final Premium ===== */
+.cta-premium {
+    background: linear-gradient(256deg,
+            var(--cor-principal) 0%,
+            var(--cor-secundaria) 35%,
+            var(--cor-destaque) 100%);
+    border: 1px solid rgba(108, 92, 231, 0.1);
+    box-shadow: 0 12px 32px rgba(108, 92, 231, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(108, 92, 231, 0.16);
+    border-color: rgba(108, 92, 231, 0.25);
+}
+
+/* Ícone */
+.cta-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(256deg,
+            var(--cor-principal) 0%,
+            var(--cor-secundaria) 35%,
+            var(--cor-destaque) 100%);
+    color: #ebeaf1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 16px rgba(108, 92, 231, 0.12);
+}
+
+.cta-premium:hover .cta-icon {
+    background: #8ec1e9;
+    color: #e8ebed;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 28px rgba(108, 92, 231, 0.3);
+}
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+    background: #25D366;
+    color: #0f35cb !important;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe57;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4);
+    color: #fff !important;
+}
+
+/* Botão Principal */
+.btn-primary-premium {
+    background: linear-gradient(256deg,
+            var(--cor-principal) 0%,
+            var(--cor-secundaria) 35%,
+            var(--cor-destaque) 100%);
+    color: #fff !important;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);
+}
+
+.btn-primary-premium:hover {
+    background: #5849c7;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(108, 92, 231, 0.4);
+    color: #fff !important;
+}
+
+/* Responsivo */
+@media (max-width: 575.98px) {
+    .cta-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 1.9rem;
+    }
+
+    .btn-whatsapp,
+    .btn-primary-premium {
+        width: 100%;
+        padding: 0.9rem 1.5rem !important;
+    }
+}
