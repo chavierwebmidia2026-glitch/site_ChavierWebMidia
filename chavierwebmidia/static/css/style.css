@@ -303,7 +303,7 @@ footer .btn-outline-light {
 }
 
 footer .btn-outline-light:hover {
-   var(--cor-destaque) !important;
+    background-color: var(--cor-destaque) !important;
     border-color: #6ac3ec;
     color: #ffffff;
     transform: translateY(-4px);
@@ -322,7 +322,7 @@ footer .small {
 
 footer .small:hover {
     opacity: 1 !important;
-    color:#6ac3ec !important;
+    color: #6ac3ec !important;
 }
 
 /* Ícones de contato */
@@ -334,4 +334,9 @@ footer .d-flex:hover .bi {
     color: #6ac3ec !important;
 }
 
-
+@media (max-width: 991.98px) {
+    footer .col-lg-3.text-center .d-flex.align-items-center {
+        justify-content: center;
+        text-align: left;
+    }
+}
