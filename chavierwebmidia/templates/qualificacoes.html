@@ -15,254 +15,244 @@ Qualificações | ChavierWebMídia
 {% block content %}
 
 
-<!-- HERO -->
+<!-- ============================
+     HERO PREMIUM - QUALIFICAÇÕES
+     ============================ -->
 
-<section class="py-5">
-
-    <div class="container py-4">
+<section class="py-5 bg-dark">
+    <div class="container py-5">
 
         <div class="row justify-content-center text-center">
+            <div class="col-12 col-lg-6">
 
-            <div class="col-12 col-lg-9">
-
-                <span class="badge rounded-pill px-3 py-2 mb-3">
+                <!-- Badge -->
+                <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3">
                     <i class="bi bi-award me-1"></i>
                     Formação e Qualificações
                 </span>
 
+                <!-- Título -->
                 <h1 class="display-5 fw-bold mb-3">
-                    Minhas Qualificações
+                    Minhas <span class="text-primary">Qualificações</span>
                 </h1>
 
-                <p class="lead mb-0">
+                <!-- Texto -->
+                <p class="lead text-white mb-4 mx-auto" style="max-width: 600px;">
                     Conheça minha formação, certificados e conhecimentos
                     adquiridos ao longo da minha trajetória profissional.
                 </p>
 
-            </div>
+                <!-- Botões -->
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3">
+                    <a href="https://wa.me/5521968061820" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-success btn-lg px-4">
+                        <i class="bi bi-whatsapp me-2"></i>
+                        Falar no WhatsApp
+                    </a>
+                    <a href="{% url 'contatos' %}" class="btn btn-outline-primary btn-lg px-4">
+                        <i class="bi bi-envelope me-2"></i>
+                        Fale Comigo
+                    </a>
+                </div>
 
+            </div>
         </div>
 
     </div>
-
 </section>
 
 
 <!-- CERTIFICADOS-->
 
-<section class="py-5">
-
-    <div class="container">
-
-        <!-- Título da seção -->
-
-        <div class="row mb-5">
-
-            <div class="col-12 text-center">
-
-                <span class="text-uppercase fw-semibold">
-                    Formação profissional
-                </span>
-
-                <h2 class="fw-bold mt-2">
-                    Certificados e Cursos
-                </h2>
-
-                <p class="mb-0">
-                    Cursos e formações que fazem parte da minha preparação
-                    profissional.
-                </p>
-
-            </div>
-
-        </div>
+<section class=" bg-dark py-5">
 
 
-        <!-- GRID DOS CERTIFICADOS -->
 
-        <div class="row g-4">
+    <!-- GRID DOS CERTIFICADOS -->
 
-            {% for certificado in certificados %}
+    <div class="row g-1 ">
 
-            <div class="col-12 col-md-6 col-xl-4">
+        {% for certificado in certificados %}
 
-                <article class="card h-100 shadow-sm border-0">
+        <div class="col-12 col-md-6 col-xl-3">
 
-                    <!-- Imagem -->
+            <article class="card h-100 shadow-sm border-0">
 
-                    {% if certificado.imagem %}
+                <!-- Imagem -->
 
-                    <div class="position-relative">
+                {% if certificado.imagem %}
 
-                        <img src="{{ certificado.imagem.url }}" class="card-img-top img-fluid"
-                            alt="{{ certificado.nome }}" onclick="ampliarImagem(this.src)">
+                <div class="position-relative">
 
-                        <span class="position-absolute top-0 end-0 m-3 badge">
-                            Certificado
+                    <img src="{{ certificado.imagem.url }}" class="card-img-top img-fluid" alt="{{ certificado.nome }}"
+                        onclick="ampliarImagem(this.src)">
+
+                    <span class="position-absolute top-0 end-0 m-3 badge">
+                        Certificado
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- Conteúdo -->
+
+                <div class="card-body p-4 d-flex flex-column">
+
+                    <div class="mb-3">
+
+                        <span class="small text-uppercase fw-semibold">
+                            Curso
                         </span>
 
+                        <h3 class="h5 fw-bold mt-1">
+                            {{ certificado.nome }}
+                        </h3>
+
                     </div>
+
+
+                    <!-- Instituição -->
+
+                    <div class="d-flex align-items-start mb-3">
+
+                        <i class="bi bi-building fs-5 me-3"></i>
+
+                        <div>
+
+                            <small class="d-block">
+                                Instituição
+                            </small>
+
+                            <span class="fw-semibold">
+                                {{ certificado.instituicao }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Datas -->
+
+                    <div class="row g-3 mb-3">
+
+                        <div class="col-6">
+
+                            <div class="d-flex align-items-start">
+
+                                <i class="bi bi-calendar-check fs-5 me-2"></i>
+
+                                <div>
+
+                                    <small class="d-block">
+                                        Início
+                                    </small>
+
+                                    <span class="fw-semibold">
+                                        {{ certificado.data_inicio|date:"d/m/Y" }}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6">
+
+                            <div class="d-flex align-items-start">
+
+                                <i class="bi bi-calendar-event fs-5 me-2"></i>
+
+                                <div>
+
+                                    <small class="d-block">
+                                        Término
+                                    </small>
+
+                                    <span class="fw-semibold">
+                                        {{ certificado.data_termino|date:"d/m/Y" }}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Carga horária -->
+
+                    <div class="d-flex align-items-start mb-3">
+
+                        <i class="bi bi-clock fs-5 me-3"></i>
+
+                        <div>
+
+                            <small class="d-block">
+                                Carga horária
+                            </small>
+
+                            <span class="fw-semibold">
+                                {{ certificado.carga_horaria }} horas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Descrição -->
+
+                    <div class="mb-4">
+
+                        <h4 class="h6 fw-bold">
+                            Sobre o curso
+                        </h4>
+
+                        <p class="small mb-0">
+                            {{ certificado.descricao }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- Botão -->
+
+                    {% if certificado.certificado %}
+
+                    <a href="{{ certificado.certificado.url }}" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline-primary w-100 mt-auto">
+                        <i class="bi bi-file-earmark-check me-2"></i>
+                        Visualizar certificado
+                    </a>
 
                     {% endif %}
 
+                </div>
 
-                    <!-- Conteúdo -->
-
-                    <div class="card-body p-4 d-flex flex-column">
-
-                        <div class="mb-3">
-
-                            <span class="small text-uppercase fw-semibold">
-                                Curso
-                            </span>
-
-                            <h3 class="h5 fw-bold mt-1">
-                                {{ certificado.nome }}
-                            </h3>
-
-                        </div>
-
-
-                        <!-- Instituição -->
-
-                        <div class="d-flex align-items-start mb-3">
-
-                            <i class="bi bi-building fs-5 me-3"></i>
-
-                            <div>
-
-                                <small class="d-block">
-                                    Instituição
-                                </small>
-
-                                <span class="fw-semibold">
-                                    {{ certificado.instituicao }}
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Datas -->
-
-                        <div class="row g-3 mb-3">
-
-                            <div class="col-6">
-
-                                <div class="d-flex align-items-start">
-
-                                    <i class="bi bi-calendar-check fs-5 me-2"></i>
-
-                                    <div>
-
-                                        <small class="d-block">
-                                            Início
-                                        </small>
-
-                                        <span class="fw-semibold">
-                                            {{ certificado.data_inicio|date:"d/m/Y" }}
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-6">
-
-                                <div class="d-flex align-items-start">
-
-                                    <i class="bi bi-calendar-event fs-5 me-2"></i>
-
-                                    <div>
-
-                                        <small class="d-block">
-                                            Término
-                                        </small>
-
-                                        <span class="fw-semibold">
-                                            {{ certificado.data_termino|date:"d/m/Y" }}
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Carga horária -->
-
-                        <div class="d-flex align-items-start mb-3">
-
-                            <i class="bi bi-clock fs-5 me-3"></i>
-
-                            <div>
-
-                                <small class="d-block">
-                                    Carga horária
-                                </small>
-
-                                <span class="fw-semibold">
-                                    {{ certificado.carga_horaria }} horas
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Descrição -->
-
-                        <div class="mb-4">
-
-                            <h4 class="h6 fw-bold">
-                                Sobre o curso
-                            </h4>
-
-                            <p class="small mb-0">
-                                {{ certificado.descricao }}
-                            </p>
-
-                        </div>
-
-
-                        <!-- Botão -->
-
-                        {% if certificado.certificado %}
-
-                        <a href="{{ certificado.certificado.url }}" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline-primary w-100 mt-auto">
-                            <i class="bi bi-file-earmark-check me-2"></i>
-                            Visualizar certificado
-                        </a>
-
-                        {% endif %}
-
-                    </div>
-
-                </article>
-
-            </div>
-
-            {% empty %}
-
-            <div class="col-12 text-center">
-
-                <p class="text-muted">
-                    Nenhum certificado cadastrado.
-                </p>
-
-            </div>
-
-            {% endfor %}
+            </article>
 
         </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center">
+
+            <p class="text-muted">
+                Nenhum certificado cadastrado.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
 
     </div>
 
