@@ -85,7 +85,7 @@
 
 .cta-premium:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 48px rgba(108, 92, 231, 0.16);
+    box-shadow: 0 24px 48px rgba(235, 235, 239, 0.16);
     border-color: rgba(108, 92, 231, 0.25);
 }
 
@@ -149,10 +149,10 @@
 }
 
 .btn-primary-premium:hover {
-    background: #5849c7;
+    background: #f3f3f5 !important;
     transform: translateY(-4px);
     box-shadow: 0 10px 24px rgba(108, 92, 231, 0.4);
-    color: #fff !important;
+    color: #f2f1f1 !important;
 }
 
 /* Responsivo */
