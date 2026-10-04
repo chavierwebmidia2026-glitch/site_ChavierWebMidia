@@ -29,7 +29,7 @@ Contato | ChavierWebMídia
                     Fale Conosco
                 </span>
 
-                <h1 class="display-6 display-md-5 fw-bold mb-3">
+                <h1 class="display-6 fw-bold mb-3">
                     Vamos transformar sua ideia em realidade digital
                 </h1>
 
@@ -65,9 +65,7 @@ Contato | ChavierWebMídia
                         </h2>
 
 
-                        <!-- ============================
-                             WHATSAPP
-                             ============================ -->
+                        <!-- WHATSAPP -->
 
                         <div class="d-flex align-items-start mb-4">
 
@@ -100,9 +98,7 @@ Contato | ChavierWebMídia
                         </div>
 
 
-                        <!-- ============================
-                             E-MAIL
-                             ============================ -->
+                        <!-- E-MAIL -->
 
                         <div class="d-flex align-items-start mb-4">
 
@@ -133,9 +129,7 @@ Contato | ChavierWebMídia
                         </div>
 
 
-                        <!-- ============================
-                             HORÁRIO
-                             ============================ -->
+                        <!-- HORÁRIO -->
 
                         <div class="d-flex align-items-start mb-4">
 
@@ -155,12 +149,9 @@ Contato | ChavierWebMídia
                                 </h3>
 
                                 <p class="text-secondary mb-0 small">
-
                                     Segunda a Sexta: 09h às 18h
                                     <br>
-
                                     Sábado: 09h às 13h
-
                                 </p>
 
                             </div>
@@ -168,9 +159,7 @@ Contato | ChavierWebMídia
                         </div>
 
 
-                        <!-- ============================
-                             LOCALIZAÇÃO
-                             ============================ -->
+                        <!-- LOCALIZAÇÃO -->
 
                         <div class="d-flex align-items-start">
 
@@ -200,9 +189,7 @@ Contato | ChavierWebMídia
                         </div>
 
 
-                        <!-- ============================
-                             REDES SOCIAIS
-                             ============================ -->
+                        <!-- REDES SOCIAIS -->
 
                         <hr class="my-4">
 
@@ -211,7 +198,6 @@ Contato | ChavierWebMídia
                         </h3>
 
                         <div class="d-flex flex-wrap gap-2">
-
 
                             <!-- WhatsApp -->
 
@@ -223,9 +209,7 @@ Contato | ChavierWebMídia
                                 rel="noopener noreferrer"
                                 aria-label="WhatsApp"
                             >
-
                                 <i class="bi bi-whatsapp"></i>
-
                             </a>
 
 
@@ -239,9 +223,7 @@ Contato | ChavierWebMídia
                                 rel="noopener noreferrer"
                                 aria-label="Instagram"
                             >
-
                                 <i class="bi bi-instagram"></i>
-
                             </a>
 
 
@@ -255,9 +237,7 @@ Contato | ChavierWebMídia
                                 rel="noopener noreferrer"
                                 aria-label="Facebook"
                             >
-
                                 <i class="bi bi-facebook"></i>
-
                             </a>
 
 
@@ -271,9 +251,7 @@ Contato | ChavierWebMídia
                                 rel="noopener noreferrer"
                                 aria-label="LinkedIn"
                             >
-
                                 <i class="bi bi-linkedin"></i>
-
                             </a>
 
                         </div>
@@ -343,12 +321,34 @@ Contato | ChavierWebMídia
 
 
                         <!-- ============================
+                             ERRO GERAL DO FORMULÁRIO
+                             ============================ -->
+
+                        {% if formulario.non_field_errors %}
+
+                        <div class="alert alert-danger">
+
+                            {% for erro in formulario.non_field_errors %}
+
+                                <div>
+                                    {{ erro }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <!-- ============================
                              FORMULÁRIO
                              ============================ -->
 
                         <form
                             method="post"
                             action="{% url 'contatos' %}"
+                            novalidate
                         >
 
                             {% csrf_token %}
@@ -357,7 +357,9 @@ Contato | ChavierWebMídia
                             <div class="row g-3">
 
 
-                                <!-- NOME -->
+                                <!-- ============================
+                                     NOME
+                                     ============================ -->
 
                                 <div class="col-12 col-md-6">
 
@@ -370,18 +372,35 @@ Contato | ChavierWebMídia
 
                                     <input
                                         type="text"
-                                        class="form-control form-control-lg"
+                                        class="form-control form-control-lg {% if formulario.nome.errors %}is-invalid{% endif %}"
                                         id="nome"
                                         name="nome"
                                         placeholder="Seu nome"
                                         autocomplete="name"
+                                        value="{{ formulario.nome.value|default:'' }}"
                                         required
                                     >
+
+                                    {% if formulario.nome.errors %}
+
+                                    <div class="invalid-feedback">
+
+                                        {% for erro in formulario.nome.errors %}
+
+                                            {{ erro }}
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% endif %}
 
                                 </div>
 
 
-                                <!-- E-MAIL -->
+                                <!-- ============================
+                                     E-MAIL
+                                     ============================ -->
 
                                 <div class="col-12 col-md-6">
 
@@ -394,18 +413,35 @@ Contato | ChavierWebMídia
 
                                     <input
                                         type="email"
-                                        class="form-control form-control-lg"
+                                        class="form-control form-control-lg {% if formulario.email.errors %}is-invalid{% endif %}"
                                         id="email"
                                         name="email"
                                         placeholder="seu@email.com"
                                         autocomplete="email"
+                                        value="{{ formulario.email.value|default:'' }}"
                                         required
                                     >
+
+                                    {% if formulario.email.errors %}
+
+                                    <div class="invalid-feedback">
+
+                                        {% for erro in formulario.email.errors %}
+
+                                            {{ erro }}
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% endif %}
 
                                 </div>
 
 
-                                <!-- WHATSAPP -->
+                                <!-- ============================
+                                     WHATSAPP
+                                     ============================ -->
 
                                 <div class="col-12 col-md-6">
 
@@ -418,18 +454,37 @@ Contato | ChavierWebMídia
 
                                     <input
                                         type="tel"
-                                        class="form-control form-control-lg"
+                                        class="form-control form-control-lg {% if formulario.whatsapp.errors %}is-invalid{% endif %}"
                                         id="whatsapp"
                                         name="whatsapp"
                                         placeholder="(21) 99999-9999"
                                         autocomplete="tel"
-                                        inputmode="tel"
+                                        inputmode="numeric"
+                                        minlength="10"
+                                        maxlength="15"
+                                        value="{{ formulario.whatsapp.value|default:'' }}"
                                     >
+
+                                    {% if formulario.whatsapp.errors %}
+
+                                    <div class="invalid-feedback">
+
+                                        {% for erro in formulario.whatsapp.errors %}
+
+                                            {{ erro }}
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% endif %}
 
                                 </div>
 
 
-                                <!-- ASSUNTO -->
+                                <!-- ============================
+                                     ASSUNTO
+                                     ============================ -->
 
                                 <div class="col-12 col-md-6">
 
@@ -441,7 +496,7 @@ Contato | ChavierWebMídia
                                     </label>
 
                                     <select
-                                        class="form-select form-select-lg"
+                                        class="form-select form-select-lg {% if formulario.assunto.errors %}is-invalid{% endif %}"
                                         id="assunto"
                                         name="assunto"
                                         required
@@ -449,42 +504,90 @@ Contato | ChavierWebMídia
 
                                         <option
                                             value=""
-                                            selected
                                             disabled
+                                            {% if not formulario.assunto.value %}
+                                                selected
+                                            {% endif %}
                                         >
                                             Selecione o assunto
                                         </option>
 
-                                        <option value="Landing Page">
+                                        <option
+                                            value="Landing Page"
+                                            {% if formulario.assunto.value == "Landing Page" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Landing Page
                                         </option>
 
-                                        <option value="Site Institucional">
+                                        <option
+                                            value="Site Institucional"
+                                            {% if formulario.assunto.value == "Site Institucional" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Site Institucional
                                         </option>
 
-                                        <option value="Sistema Web">
+                                        <option
+                                            value="Sistema Web"
+                                            {% if formulario.assunto.value == "Sistema Web" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Sistema Web
                                         </option>
 
-                                        <option value="Chatbot">
+                                        <option
+                                            value="Chatbot"
+                                            {% if formulario.assunto.value == "Chatbot" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Chatbot
                                         </option>
 
-                                        <option value="Outros Serviços">
+                                        <option
+                                            value="Outros Serviços"
+                                            {% if formulario.assunto.value == "Outros Serviços" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Outros Serviços
                                         </option>
 
-                                        <option value="Orçamento">
+                                        <option
+                                            value="Orçamento"
+                                            {% if formulario.assunto.value == "Orçamento" %}
+                                                selected
+                                            {% endif %}
+                                        >
                                             Solicitar Orçamento
                                         </option>
 
                                     </select>
 
+                                    {% if formulario.assunto.errors %}
+
+                                    <div class="invalid-feedback">
+
+                                        {% for erro in formulario.assunto.errors %}
+
+                                            {{ erro }}
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% endif %}
+
                                 </div>
 
 
-                                <!-- MENSAGEM -->
+                                <!-- ============================
+                                     MENSAGEM
+                                     ============================ -->
 
                                 <div class="col-12">
 
@@ -496,18 +599,34 @@ Contato | ChavierWebMídia
                                     </label>
 
                                     <textarea
-                                        class="form-control form-control-lg"
+                                        class="form-control form-control-lg {% if formulario.mensagem.errors %}is-invalid{% endif %}"
                                         id="mensagem"
                                         name="mensagem"
                                         rows="6"
                                         placeholder="Conte-nos sobre o seu projeto..."
                                         required
-                                    ></textarea>
+                                    >{{ formulario.mensagem.value|default:'' }}</textarea>
+
+                                    {% if formulario.mensagem.errors %}
+
+                                    <div class="invalid-feedback">
+
+                                        {% for erro in formulario.mensagem.errors %}
+
+                                            {{ erro }}
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% endif %}
 
                                 </div>
 
 
-                                <!-- BOTÃO -->
+                                <!-- ============================
+                                     BOTÃO
+                                     ============================ -->
 
                                 <div class="col-12">
 
@@ -539,6 +658,11 @@ Contato | ChavierWebMídia
     </div>
 
 </section>
+
+
+<!-- ============================
+     JAVASCRIPT DA PÁGINA
+     ============================ -->
 
 <script src="{% static 'js/contatos.js' %}"></script>
 
