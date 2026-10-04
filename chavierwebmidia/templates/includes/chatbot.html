@@ -1,0 +1,147 @@
+<!-- ============================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < HTML := CHATBOT >
+     ============================ -->
+
+{% load static %}
+
+
+<!-- ==================================================
+     BOTÃO DO CHATBOT
+================================================== -->
+
+<button
+    type="button"
+    id="chwmChatbotButton"
+    class="chwm-chatbot-button"
+    aria-label="Abrir atendimento">
+
+    💬
+
+</button>
+
+
+<!-- ==================================================
+     JANELA DO CHATBOT
+================================================== -->
+
+<div
+    id="chwmChatbot"
+    class="chwm-chatbot">
+
+
+    <!-- ==================================================
+         CABEÇALHO
+    ================================================== -->
+
+    <div class="chwm-chatbot-header">
+
+        <div class="chwm-chatbot-brand">
+
+            <div class="chwm-chatbot-avatar">
+                🤖
+            </div>
+
+            <div>
+
+                <p class="chwm-chatbot-title">
+                    CHWM := CHAVIERWEBMÍDIA
+                </p>
+
+                <div class="chwm-chatbot-status">
+                    ● Atendimento online
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="chwmChatbotClose"
+            class="chwm-chatbot-close"
+            aria-label="Fechar chatbot">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         ÁREA DE MENSAGENS
+    ================================================== -->
+
+    <div
+        id="chwmChatbotMessages"
+        class="chwm-chatbot-messages">
+
+        <div class="chwm-message bot">
+
+            <div class="chwm-bubble">
+
+                👋 Olá!
+
+                <br><br>
+
+                Sou o assistente virtual da
+                <strong>ChavierWebMídia</strong>.
+
+                <br><br>
+
+                Para começarmos seu atendimento,
+                <strong>qual é o seu nome?</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         TOKEN CSRF
+    ================================================== -->
+
+    <input
+        type="hidden"
+        id="chwmCsrfToken"
+        value="{{ csrf_token }}"
+    >
+
+
+    <!-- ==================================================
+         CAMPO DE MENSAGEM
+    ================================================== -->
+
+    <div class="chwm-chatbot-input">
+
+        <input
+            type="text"
+            id="chwmChatbotInput"
+            placeholder="Digite sua mensagem..."
+            autocomplete="off"
+            aria-label="Digite sua mensagem"
+        >
+
+        <button
+            type="button"
+            id="chwmChatbotSend"
+            aria-label="Enviar mensagem">
+
+            <i class="bi bi-send-fill"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="{% static 'js/chatbot.js' %}"></script>

@@ -1,0 +1,369 @@
+ /*=======================================
+     < CHWM := CHAVIERWEBMÍDIA >
+     < CSS := PÁGINA STYLE CH DO SITE >
+     =====================================*/
+
+/* ==================================================
+   CHATBOT CHAVIERWEBMÍDIA
+================================================== */
+
+.chwm-chatbot-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 62px;
+    height: 62px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #090979,
+        #00d4ff
+    );
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.35);
+
+    transition: 0.3s;
+}
+
+.chwm-chatbot-button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 7px 25px rgba(0, 212, 255, 0.45);
+}
+
+
+/* ==================================================
+   JANELA
+================================================== */
+
+.chwm-chatbot {
+    position: fixed;
+
+    right: 25px;
+    bottom: 100px;
+
+    width: 370px;
+    max-width: calc(100vw - 30px);
+    height: 550px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    display: none;
+    flex-direction: column;
+
+    z-index: 9998;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.chwm-chatbot.ativo {
+    display: flex;
+}
+
+
+/* ==================================================
+   CABEÇALHO
+================================================== */
+
+.chwm-chatbot-header {
+    background:
+        linear-gradient(
+            135deg,
+            #000e24,
+            #090979,
+            #00d4ff
+        );
+
+    color: #ffffff;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.chwm-chatbot-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.chwm-chatbot-avatar {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #090979;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.chwm-chatbot-title {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin: 0;
+}
+
+.chwm-chatbot-status {
+    font-size: 11px;
+
+    margin-top: 2px;
+
+    opacity: 0.9;
+}
+
+.chwm-chatbot-close {
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   MENSAGENS
+================================================== */
+
+.chwm-chatbot-messages {
+    flex: 1;
+
+    padding: 15px;
+
+    background: #f4f7fb;
+
+    overflow-y: auto;
+}
+
+.chwm-message {
+    display: flex;
+
+    margin-bottom: 12px;
+}
+
+.chwm-message.bot {
+    justify-content: flex-start;
+}
+
+.chwm-message.user {
+    justify-content: flex-end;
+}
+
+.chwm-bubble {
+    max-width: 82%;
+
+    padding: 11px 14px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.chwm-message.bot .chwm-bubble {
+    background: #ffffff;
+
+    color: #202020;
+
+    border-bottom-left-radius: 4px;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.chwm-message.user .chwm-bubble {
+    background: #090979;
+
+    color: #ffffff;
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* ==================================================
+   OPÇÕES
+================================================== */
+
+.chwm-chatbot-options {
+    padding: 12px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eeeeee;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.chwm-chatbot-option {
+    width: 100%;
+
+    padding: 9px 12px;
+
+    border: 1px solid #090979;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #090979;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.chwm-chatbot-option:hover {
+    background: #090979;
+
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   WHATSAPP
+================================================== */
+
+.chwm-whatsapp {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    background: #25D366;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.chwm-whatsapp:hover {
+    background: #1ebe5d;
+
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 480px) {
+
+    .chwm-chatbot {
+        right: 10px;
+
+        bottom: 85px;
+
+        width: calc(100vw - 20px);
+
+        height: 70vh;
+    }
+
+    .chwm-chatbot-button {
+        right: 15px;
+
+        bottom: 15px;
+    }
+}
+/* ==================================================
+   CAMPO DE MENSAGEM
+================================================== */
+
+.chwm-chatbot-input {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.chwm-chatbot-input input {
+    flex: 1;
+    border: 1px solid #d0d0d0;
+    border-radius: 25px;
+    padding: 10px 15px;
+    outline: none;
+    font-size: 14px;
+}
+
+.chwm-chatbot-input input:focus {
+    border-color: #00d4ff;
+}
+
+.chwm-chatbot-input button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #000e24,
+        #090979,
+        #00d4ff
+    );
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chwm-chatbot-input button:hover {
+    transform: scale(1.05);
+}
+

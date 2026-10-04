@@ -7,4 +7,5 @@ urlpatterns = [
     path('sobre/', views.sobre, name='sobre'),
     path('contatos/', views.contatos, name='contatos'),
     path('qualificacoes/', views.qualificacoes, name='qualificacoes'),
+    path('chatbot/mensagem/', views.chatbot_mensagem, name='chatbot_mensagem'),
 ]
